@@ -354,3 +354,29 @@ h2.section-title {
 .about-items {
   margin-top: 60px;
 }
+
+section.brands {
+  padding: 200px 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.section-title h2 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.brands-row-one {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.brands-row-two {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
