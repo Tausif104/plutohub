@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Col, Container, Row } from 'react-bootstrap'
-import { ArrowRight } from 'lucide-react'
 import PrimaryBtn from './primary-btn'
 
 const Header = () => {
@@ -39,7 +38,9 @@ const Header = () => {
               </nav>
 
               <div className='header-btn'>
-                <PrimaryBtn url='/test'>Lets Talk</PrimaryBtn>
+                <PrimaryBtn type='default' url='/test'>
+                  Lets Talk
+                </PrimaryBtn>
               </div>
             </div>
           </Col>

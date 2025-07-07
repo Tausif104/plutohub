@@ -48,14 +48,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-} */
-
-
 .hero-section {
   background-size: cover;
   padding: 170px 0;
@@ -86,4 +78,279 @@ a {
 
 .circle-animation-section p {
   color: #fff;
+}
+
+header nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 30px;
+}
+
+header nav ul li a {
+  color: #030207;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+a.primary-btn {
+  color: #030207;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: #fff;
+  display: inline-block;
+}
+
+span.btn-icon svg {
+  max-width: 16px !important;
+}
+
+span.btn-icon {
+  background-color: #06d6a0;
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  align-items: center;
+  border-radius: 50px;
+  transform: rotate(-45deg);
+}
+
+span.button-inside {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 7px 10px;
+  padding-left: 30px;
+  background-color: #fff;
+}
+
+a.primary-btn {
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  padding: 15px 0;
+}
+
+.invert span.btn-icon {
+  background-color: #fff;
+}
+
+.invert span.button-inside {
+  background-color: #06d6a0;
+  color: #fff;
+}
+
+span.btn-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+section.hero-section {
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-review > span {
+  gap: 15px;
+}
+
+.hero-text h1 {
+  font-size: 60px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 30px 0;
+}
+
+.hero-text h1 {
+  margin-bottom: 0;
+}
+
+.hero-review {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-size: cover;
+  background-position: center;
+  background-color: #333;
+}
+
+.footer-box h2 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.footer-box h3 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+footer {
+  background-size: cover;
+}
+
+.footer-box li a {
+  color: #d6d6d6;
+}
+
+.footer-box ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-top {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.footer-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-middle-container .row {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 40px 30px;
+  align-items: center;
+}
+
+.middle-footer-box {
+  display: flex;
+  align-items: center;
+}
+
+.middle-footer-box-content h4 {
+  font-size: 23px;
+  color: #fff;
+}
+
+.middle-footer-box-content p {
+  font-size: 16px;
+  color: #fff;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.middle-footer-box-content a {
+  color: #fff;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.middle-footer-box {
+  gap: 10px;
+}
+
+.middle-footer-box.last-item {
+  justify-content: end;
+  gap: 30px;
+}
+
+.footer-copyright p {
+  margin: 0;
+  color: #adadad;
+  font-size: 14px;
+}
+
+.footer-copyright {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.footer-copyright p strong {
+  color: #fff;
+}
+
+.footer-bottom {
+  margin-top: 70px;
+}
+
+.social-links a {
+  background-color: rgba(255, 255, 255, 0.07);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-links a svg {
+  max-width: 18px;
+}
+
+.social-links a {
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background-color: #06d6a0;
+}
+
+section.about-section {
+  padding: 100px 0;
+}
+
+h2.section-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #030207;
+}
+
+.about-ratings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.about-ratings-text p {
+  margin-bottom: 0;
+}
+
+.about-right p {
+  color: #030207;
+  font-size: 25px;
+}
+
+.about-box h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+.about-box p {
+  font-size: 16px;
+  margin-bottom: 0;
+  color: #121212;
+  line-height: 1.6;
+}
+
+.about-items {
+  margin-top: 60px;
 }
