@@ -54,3 +54,36 @@ a {
     color-scheme: dark;
   }
 } */
+
+
+.hero-section {
+  background-size: cover;
+  padding: 170px 0;
+  border-radius: 0 0 90px 90px;
+}
+
+.circle-animation-section {
+  padding: 120px 0;
+  background: #111827;
+}
+
+.animation-circle {
+  background-color: transparent;
+}
+
+.animated-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.title-text {
+  font-size: 48px;
+  font-weight: bold;
+  display: none;
+}
+
+.circle-animation-section p {
+  color: #fff;
+}
