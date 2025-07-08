@@ -153,7 +153,7 @@ const Footer = () => {
             <Col xl={12}>
               <div className='footer-logo'>
                 <Image
-                  src='/images/footer-logo.png'
+                  src='/images/footer-logo.svg'
                   width={1320}
                   height={290}
                   alt='Plutohub'

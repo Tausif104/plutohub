@@ -12,8 +12,8 @@ const FaqSection = () => {
       <Container>
         <Row>
           <Col xl={12}>
-            <div className='section-title'>
-              <h2>
+            <div className='section-title-wrapper text-center'>
+              <h2 className='section-title'>
                 Frequently Asked <br /> Questions
               </h2>
             </div>
