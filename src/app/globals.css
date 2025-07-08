@@ -159,7 +159,7 @@ section.hero-section {
   background-position: center;
 }
 
-.hero-review > span {
+.hero-review>span {
   gap: 15px;
 }
 
@@ -468,8 +468,7 @@ span.accordion-icons svg {
 .counter-box {
   padding: 50px 20px 30px;
   border-radius: 30px;
-  background: url('../../public/images/curbed-box-bg.png') no-repeat center
-    center;
+  background: url('../../public/images/curbed-box-bg.png') no-repeat center center;
   background-size: 100% 100%;
   text-align: center;
 }
@@ -559,15 +558,13 @@ span.accordion-icons svg {
 
 .single-service-item .flipbox-front {
   transform: rotateY(0deg);
-  background: url('../../public/images/flip-box-front-bg.png') no-repeat center
-    center;
+  background: url('../../public/images/flip-box-front-bg.png') no-repeat center center;
   background-size: 100% 100%;
 }
 
 .single-service-item .flipbox-back {
   transform: rotateY(180deg);
-  background: url('../../public/images/flip-box-back-bg.png') no-repeat center
-    center;
+  background: url('../../public/images/flip-box-back-bg.png') no-repeat center center;
   background-size: 100% 100%;
   justify-content: flex-end;
   padding-bottom: 40px;
@@ -581,6 +578,130 @@ span.accordion-icons svg {
   transform: rotateY(0deg);
 }
 
+/* testimonials css  */
+.single-testimonial-item {
+  background: url('../../public/images/testimonial-bg.png') no-repeat center center;
+  background-size: 100% 100%;
+  padding: 24px;
+  color: #fff;
+}
+
+.single-testimonial-item .quote-image {
+  margin-bottom: 20px;
+}
+
+.single-testimonial-item .message {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.testimonials-area .section-title-wrapper {
+  color: #fff;
+}
+
+.testimonials-area .section-title-wrapper .section-title {
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.testimonials-area .slick-dots {
+  display: none !important;
+}
+
+.testimonials-area .slick-arrow {
+  display: none !important;
+}
+
+.testi-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.testi-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.testi-nav span {
+  display: flex;
+  align-items: center;
+  background: hwb(0deg 100% 0% / 10%);
+  height: 55px;
+  width: 55px;
+  justify-content: center;
+  color: #06D6A0;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+.testi-nav span:hover {
+  background: #06D6A0;
+  color: #fff;
+}
+
+.testi-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.testi-dots span {
+  width: 100px;
+  height: 3px;
+  background: hwb(0deg 100% 0% / 10%);
+}
+
+.testi-dots span.active {
+  background: #06D6A0;
+}
+
+.testimonials-items {
+  margin: 0 -15px;
+}
+
+.testimonials-items .slick-track {
+  display: flex;
+  gap: 30px;
+}
+
+.author-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-top: 25px;
+  border-top: 1px solid hwb(0deg 100% 0% / 10%);
+}
+
+.author-meta .author-avatar {
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.author-info h4 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.author-info p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: #ADADAD;
+}
+
+.testimonials-area {
+  padding: 120px 0;
+  background: url("../../public/images/testimonial-section-bg.png") no-repeat center center;
+  background-size: cover;
+}
+
 @media (max-width: 1366px) {
   .services-area {
     padding: 80px 0;
@@ -589,6 +710,10 @@ span.accordion-icons svg {
 
   h2.section-title {
     font-size: 36px;
+  }
+
+  .testimonials-area {
+    padding: 80px 0;
   }
 }
 
@@ -602,6 +727,20 @@ span.accordion-icons svg {
     font-size: 22px;
     margin-bottom: 0;
   }
+
+  .testimonials-area .section-title-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .testimonials-area .section-title-wrapper .section-title {
+    color: #fff;
+    margin-bottom: 15px;
+  }
+
+  .testi-dots span {
+    width: 50px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -611,6 +750,21 @@ span.accordion-icons svg {
 
   .single-service-item {
     height: 360px;
+  }
+
+  .testi-dots span {
+    width: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testi-dots {
+    display: none;
+  }
+
+  .testi-navigation {
+    justify-content: center;
+    margin-top: 30px;
   }
 }
 
