@@ -380,3 +380,70 @@ section.brands {
   gap: 20px;
   margin-top: 20px;
 }
+
+section.faq-section {
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.accordion-item {
+  border-radius: 16px !important;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+  border: 2px solid #fff !important;
+}
+
+.accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+button.accordion-button {
+  background-color: transparent !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.accordion-button::after {
+  display: none;
+}
+
+button.accordion-button {
+  box-shadow: none !important;
+}
+
+button.accordion-button {
+  font-size: 20px;
+  font-weight: 600;
+  color: #030207 !important;
+}
+
+button.accordion-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion-button:not(.collapsed) .accordion-icons svg:first-child {
+  display: none;
+}
+
+.accordion-button .accordion-icons svg:nth-child(2) {
+  display: none;
+}
+
+.accordion-button:not(.collapsed) .accordion-icons svg:nth-child(2) {
+  display: block !important;
+}
+
+span.accordion-icons svg {
+  background-color: #ffffff5e;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 2px 2px #fff;
+}
