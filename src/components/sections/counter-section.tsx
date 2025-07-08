@@ -7,7 +7,8 @@ const CounterSection = () => {
   const circleRef = useRef<HTMLDivElement | null>(null)
   const sectionRef = useRef<HTMLElement | null>(null)
   const titleTextRefs = useRef<HTMLSpanElement[]>([])
-  const countersRef = useRef<(HTMLHeadingElement | null)[]>([])
+  const countersRef = useRef<HTMLHeadingElement[]>([])
+  countersRef.current = []
 
   // Safely add refs
   const addToTitleRefs = (el: HTMLSpanElement | null) => {
@@ -160,7 +161,9 @@ const CounterSection = () => {
               <Col xl={3} lg={6} md={6} sm={6} key={index}>
                 <div className='counter-box'>
                   <h3
-                    ref={(el) => (countersRef.current[index] = el)}
+                    ref={(el) => {
+                      if (el) countersRef.current.push(el)
+                    }}
                     data-target={item.num}
                     data-suffix={item.suffix}
                   >
