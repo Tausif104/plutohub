@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './globals.css'
+import './responsive.css'
 import Header from '@/components/shared/header'
 import Footer from '@/components/shared/footer'
 

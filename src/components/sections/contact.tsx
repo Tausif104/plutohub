@@ -21,7 +21,7 @@ const ContactSection = () => {
         </Row>
 
         <Row>
-          <Col xl={4}>
+          <Col xl={4} lg={5}>
             <div className='contact-info'>
               <div className='contact-info-inner'>
                 <div className='contact-info-top'>
@@ -74,7 +74,7 @@ const ContactSection = () => {
             </div>
           </Col>
 
-          <Col xl={8}>
+          <Col xl={8} lg={7}>
             <div
               className='contact-form-wrapper'
               style={{ backgroundImage: 'url(/images/contact-form-bg.png)' }}

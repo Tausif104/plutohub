@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='footer-top'>
         <Container>
           <Row>
-            <Col xl={6}>
+            <Col xl={6} lg={5} md={12} xs={12}>
               <div className='footer-box'>
                 <h2>
                   We partner with global brands, <br /> from startups to
@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
             </Col>
 
-            <Col xl={2}>
+            <Col xl={2} lg={2} md={6} xs={6}>
               <div className='footer-box'>
                 <h3>Quick Links</h3>
                 <ul>
@@ -53,7 +53,7 @@ const Footer = () => {
               </div>
             </Col>
 
-            <Col xl={2}>
+            <Col xl={2} lg={2} md={6} xs={6}>
               <div className='footer-box'>
                 <h3>Services</h3>
                 <ul>
@@ -73,7 +73,7 @@ const Footer = () => {
               </div>
             </Col>
 
-            <Col xl={2}>
+            <Col xl={2} lg={3} md={12} xs={12}>
               <div className='footer-box'>
                 <h3>Company</h3>
                 <ul>
@@ -99,7 +99,7 @@ const Footer = () => {
       <div className='footer-middle'>
         <Container className='footer-middle-container'>
           <Row>
-            <Col xl={4}>
+            <Col xl={4} lg={4}>
               <div className='middle-footer-box'>
                 <Image
                   src='/images/statue.svg'
@@ -114,7 +114,7 @@ const Footer = () => {
                 </div>
               </div>
             </Col>
-            <Col xl={4}>
+            <Col xl={4} lg={4}>
               <div className='middle-footer-box'>
                 <Image
                   src='/images/portugal.svg'
@@ -129,7 +129,7 @@ const Footer = () => {
                 </div>
               </div>
             </Col>
-            <Col xl={4}>
+            <Col xl={4} lg={4}>
               <div className='middle-footer-box last-item'>
                 <div className='middle-footer-box-content'>
                   <h4>Company Deck</h4>

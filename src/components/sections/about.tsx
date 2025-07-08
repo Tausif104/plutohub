@@ -6,7 +6,7 @@ const AboutSection = () => {
     <section className='about-section'>
       <Container>
         <Row className='align-items-center'>
-          <Col xl={6}>
+          <Col lg={6} md={6}>
             <div className='about-top-left'>
               <h2 className='section-title'>About us</h2>
               <div className='about-ratings'>
@@ -33,7 +33,7 @@ const AboutSection = () => {
             </div>
           </Col>
 
-          <Col xl={6}>
+          <Col lg={6} md={6}>
             <div className='about-right'>
               <p>
                 PlutoHub is here for you and your business! We create awesome
@@ -45,7 +45,7 @@ const AboutSection = () => {
         </Row>
 
         <Row className='about-items'>
-          <Col xl={3}>
+          <Col xl={3} lg={6} md={6} sm={12}>
             <div className='about-box'>
               <Image
                 src='/images/about-icons/1.svg'
@@ -59,7 +59,7 @@ const AboutSection = () => {
               </p>
             </div>
           </Col>
-          <Col xl={3}>
+          <Col xl={3} lg={6} md={6} sm={12}>
             <div className='about-box'>
               <Image
                 src='/images/about-icons/2.svg'
@@ -74,7 +74,7 @@ const AboutSection = () => {
               </p>
             </div>
           </Col>
-          <Col xl={3}>
+          <Col xl={3} lg={6} md={6} sm={12}>
             <div className='about-box'>
               <Image
                 src='/images/about-icons/3.svg'
@@ -88,7 +88,7 @@ const AboutSection = () => {
               </p>
             </div>
           </Col>
-          <Col xl={3}>
+          <Col xl={3} lg={6} md={6} sm={12}>
             <div className='about-box'>
               <Image
                 src='/images/about-icons/4.svg'
