@@ -13,6 +13,7 @@ const HomePage = () => {
   const circleRef = useRef<HTMLDivElement | null>(null)
   const sectionRef = useRef<HTMLElement | null>(null)
   const titleTextRefs = useRef<HTMLSpanElement[]>([])
+  const countersRef = useRef<(HTMLHeadingElement | null)[]>([])
 
   // Safely add refs
   const addToTitleRefs = (el: HTMLSpanElement | null) => {
@@ -22,55 +23,96 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hide initially
-      gsap.set(titleTextRefs.current, {
-        display: 'none',
-        opacity: 0,
-      })
+    // const ctx = gsap.context(() => {
+    //   // Hide initially
+    //   gsap.set(titleTextRefs.current, {
+    //     display: 'none',
+    //     opacity: 0,
+    //   })
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: '+=1500',
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-        },
-      })
+    //   const tl = gsap.timeline({
+    //     scrollTrigger: {
+    //       trigger: sectionRef.current,
+    //       start: 'top top',
+    //       end: '+=1500',
+    //       scrub: true,
+    //       pin: true,
+    //       anticipatePin: 1,
+    //     },
+    //   })
 
-      // Circle animation
-      tl.to(circleRef.current, {
-        width: 797,
-        height: 720,
-        borderRadius: '1000px',
-        backgroundColor: '#fff',
-        borderWidth: 0,
-        ease: 'none',
-      })
+    //   // Circle animation
+    //   tl.to(circleRef.current, {
+    //     width: 797,
+    //     height: 720,
+    //     borderRadius: '1000px',
+    //     backgroundColor: '#fff',
+    //     borderWidth: 0,
+    //     ease: 'none',
+    //   })
 
-      tl.to(circleRef.current, {
-        width: 66,
-        height: 41,
-        borderRadius: '1000px',
-        backgroundColor: 'transparent',
-        border: '6px solid #fff',
-        ease: 'none',
-      })
+    //   tl.to(circleRef.current, {
+    //     width: 66,
+    //     height: 41,
+    //     borderRadius: '1000px',
+    //     backgroundColor: 'transparent',
+    //     border: '6px solid #fff',
+    //     ease: 'none',
+    //   })
 
-      // Show title texts
-      tl.set(titleTextRefs.current, { display: 'inline-block' })
-      tl.to(titleTextRefs.current, {
-        opacity: 1,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power1.out',
-      })
-    }, sectionRef)
+    //   // Show title texts
+    //   tl.set(titleTextRefs.current, { display: 'inline-block' })
+    //   tl.to(titleTextRefs.current, {
+    //     opacity: 1,
+    //     duration: 0.5,
+    //     stagger: 0.1,
+    //     ease: 'power1.out',
+    //   })
+    // }, sectionRef)
 
-    return () => ctx.revert()
+    // return () => ctx.revert()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counter = entry.target as HTMLHeadingElement
+            animateCounter(counter)
+            observer.unobserve(counter) // Stop observing after animation
+          }
+        })
+      },
+      { threshold: 0.6 } // Trigger when 60% visible
+    )
+
+    countersRef.current.forEach((counter) => {
+      if (counter) observer.observe(counter)
+    })
+
+    return () => observer.disconnect()
+
   }, [])
+
+  const animateCounter = (element: HTMLHeadingElement) => {
+    const target = parseFloat(element.getAttribute('data-target') || '0')
+    const suffix = element.getAttribute('data-suffix') || '+'
+    let count = 0
+    const duration = 2000
+    const increment = target / (duration / 16)
+
+    const updateCounter = () => {
+      count += increment
+      if (count < target) {
+        // Keep 1 decimal for float numbers like 1.5
+        element.innerText = `${(target % 1 !== 0 ? count.toFixed(1) : Math.floor(count))}${suffix}`
+        requestAnimationFrame(updateCounter)
+      } else {
+        element.innerText = `${target}${suffix}`
+      }
+    }
+
+    requestAnimationFrame(updateCounter)
+  }
 
   return (
     <>
@@ -148,8 +190,43 @@ const HomePage = () => {
         </div>
       </section> */}
 
+      {/* counter section  */}
+      <section className="counter-area">
+        <Container>
+          <Row className='align-items-center'>
+            <Col xl={12}>
+              <div className='section-title-wrapper text-center mb-5'>
+                <h2 className='section-title'>Numbers Don’t Lie</h2>
+                <p>With a track record of excellence, we’ve helped hundreds of businesses achieve their goals.</p>
+              </div>
+            </Col>
+          </Row>
+          <Row className='align-items-center gy-4'>
+            {[
+              { num: 12, suffix: '+', text: 'Years of experience' },
+              { num: 1.5, suffix: 'k+', text: 'Happy Clients' },
+              { num: 100, suffix: '%', text: 'Awards Won' },
+              { num: 50, suffix: '+', text: 'Years of Experience' },
+            ].map((item, index) => (
+              <Col xl={3} lg={6} md={6} sm={6} key={index}>
+                <div className='counter-box'>
+                  <h3
+                    ref={(el) => countersRef.current[index] = el}
+                    data-target={item.num}
+                    data-suffix={item.suffix}
+                  >
+                    0{item.suffix}
+                  </h3>
+                  <p>{item.text}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section >
+
       {/* about section */}
-      <section className='about-section'>
+      < section className='about-section' >
         <Container>
           <Row className='align-items-center'>
             <Col xl={6}>
@@ -252,10 +329,10 @@ const HomePage = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section >
 
       {/* brands */}
-      <section
+      < section
         className='brands'
         style={{ backgroundImage: 'url(/images/brands-bg.jpg)' }}
       >
@@ -367,7 +444,107 @@ const HomePage = () => {
             </Col>
           </Row>
         </Container>
+      </section >
+
+      {/* services area  */}
+      <section className="services-area">
+        <Container>
+          <Row className=''>
+            <Col xl={4}>
+              <div className='section-title-wrapper'>
+                <h2 className='section-title'>Our Services</h2>
+                <p>We Create Unique Digital Experiences For Global Brands By Integrating AI, Innovative Design, And Advanced Technology.</p>
+                <div className='services-ratings'>
+                  <Image className='review-icon'
+                    src='/images/review-icon2.svg'
+                    width={67}
+                    height={33}
+                    alt='review-icon'
+                  />
+                  <div className='services-ratings-text'>
+                    <Image
+                      src='/images/star.svg'
+                      width={72}
+                      height={12}
+                      alt='star'
+                    />
+                    <p>
+                      <span>
+                        Based on <strong>24 clutch</strong> reviews
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col xl={8}>
+              <div className="services-items">
+                {/* single services item */}
+                <div className="single-service-item">
+                  <div className="flip-card flipbox-front">
+                    <Image
+                      src='/images/service-thumb1.png'
+                      width={350}
+                      height={330}
+                      alt='service-thumb1'
+                    />
+                    <h4>UI/UX Design</h4>
+                  </div>
+                  <div className="flip-card flipbox-back">
+                    <h4>UI/UX Design</h4>
+                  </div>
+                </div>
+                {/* single services item */}
+                <div className="single-service-item">
+                  <div className="flip-card flipbox-front">
+                    <Image
+                      src='/images/service-thumb2.png'
+                      width={350}
+                      height={330}
+                      alt='service-thumb1'
+                    />
+                    <h4>Mobile App Design</h4>
+                  </div>
+                  <div className="flip-card flipbox-back">
+                    <h4>Mobile App Design</h4>
+                  </div>
+                </div>
+                {/* single services item */}
+                <div className="single-service-item">
+                  <div className="flip-card flipbox-front">
+                    <Image
+                      src='/images/service-thumb3.png'
+                      width={350}
+                      height={330}
+                      alt='service-thumb1'
+                    />
+                    <h4>Saas Design</h4>
+                  </div>
+                  <div className="flip-card flipbox-back">
+                    <h4>Saas Design</h4>
+                  </div>
+                </div>
+                {/* single services item */}
+                <div className="single-service-item">
+                  <div className="flip-card flipbox-front">
+                    <Image
+                      src='/images/service-thumb4.png'
+                      width={350}
+                      height={330}
+                      alt='service-thumb1'
+                    />
+                    <h4>Mobile App Design</h4>
+                  </div>
+                  <div className="flip-card flipbox-back">
+                    <h4>Mobile App Design</h4>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </section>
+
     </>
   )
 }
